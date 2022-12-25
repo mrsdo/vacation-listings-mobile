@@ -6,8 +6,9 @@
  */
 import RenderListing from "../features/listings/RenderListing";
 
-const ListingInfoPage = (props) => {
-    return <RenderListing listing={props.listing} />;
+const ListingInfoPage = ({route}) => {
+    const { listing } = route.params;
+    return <RenderListing listing={listing} />;
 };
 
 export default ListingInfoPage;
