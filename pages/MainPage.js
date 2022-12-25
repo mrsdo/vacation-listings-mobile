@@ -42,6 +42,8 @@ const DirectoryNavigator = () => {
                 })}
             />
         </Stack.Navigator>
+
+
     );
 };
 

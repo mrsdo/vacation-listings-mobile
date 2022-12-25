@@ -39,13 +39,12 @@ const ListingDirectoryPage = ({navigation}) => {
         );
     };
     return (
-        <Card title="Film Catalogue">
         <FlatList
             data={listings}
             renderItem={renderDirectoryItem}
             keyExtractor={(item) => item.id.toString()}
         />
-        </Card>
+
     );
 };
 
