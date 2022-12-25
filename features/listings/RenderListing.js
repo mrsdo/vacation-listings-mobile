@@ -12,7 +12,7 @@ const RenderListing = ({ listing }) => {
     if (listing) {
         return (
             <Card containerStyle={{ padding: 0 }}>
-                <Card.Image source={listing.image}>
+                <Card.Image source={{uri: listing.image}}>
                     <View style={{ justifyContent: 'center', flex: 1 }}>
                         <Text
                             style={{

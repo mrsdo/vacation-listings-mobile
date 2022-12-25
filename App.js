@@ -6,7 +6,6 @@
  */
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
-import { Appbar } from 'react-native-paper';
 
 // Import Local Components
 import MainListings from './pages/MainPage';

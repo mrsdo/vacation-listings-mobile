@@ -24,9 +24,15 @@ const DirectoryNavigator = () => {
             initialRouteName='Directory'
             screenOptions={{
                 headerStyle: {
-                    backgroundColor: '#5637DD'
+                    backgroundColor: '#E75B64',
+                    borderBottomWidth: 2,
+                    borderTopWidth: 2,
+                    borderTopColor: '#A9B2BD',
+                    elevation: 0,
+                    shadowOpacity: 0,
+                    borderBottomColor: '#FFA036'
                 },
-                headerTintColor: '#fff'
+                headerTintColor: '#FFF'
             }}
         >
             <Stack.Screen
