@@ -7,7 +7,7 @@
  */
 
 
-import {SafeAreaView, Text, FlatList, Platform, StyleSheet, View} from 'react-native';
+import {Platform, View} from 'react-native';
 import Constants from 'expo-constants';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -20,19 +20,10 @@ import ListingDirectoryPage from './ListingDirectoryPage';
 const Drawer = createDrawerNavigator();
 
 const screenOptions = {
-
-    headerStyle: {
-        backgroundColor: '#E75B64',
-            borderBottomWidth: 2,
-            borderTopWidth: 2,
-            borderTopColor: '#A9B2BD',
-            elevation: 0,
-            shadowOpacity: 0,
-            borderBottomColor: '#FFA036'
-    },
-    headerTintColor: '#FFF'
-
+    headerTintColor: '#fff',
+    headerStyle: { backgroundColor: '#5637DD' }
 };
+
 
 const HomeNavigator = () => {
     const Stack = createStackNavigator();
@@ -41,7 +32,7 @@ const HomeNavigator = () => {
             <Stack.Screen
                 name='Home'
                 component={HomePage}
-               options={{ title: 'Home' }}
+                options={{ title: 'Welcome' }}
             />
         </Stack.Navigator>
     );
@@ -51,7 +42,6 @@ const HomeNavigator = () => {
 const DirectoryNavigator = () => {
     const Stack = createStackNavigator();
     return (
-
         <Stack.Navigator
             initialRouteName='Directory'
             screenOptions={screenOptions}
@@ -69,10 +59,9 @@ const DirectoryNavigator = () => {
                 })}
             />
         </Stack.Navigator>
-
-
     );
 };
+
 
 const Main = () => {
     return (
@@ -85,17 +74,17 @@ const Main = () => {
         >
             <Drawer.Navigator
                 initialRouteName='Home'
-                drawerStyle={{ backgroundColor: '#A9B2BD' }}
+                drawerStyle={{ backgroundColor: '#CEC8FF' }}
             >
                 <Drawer.Screen
-                    name='Welcome'
+                    name='Lists Info'
                     component={HomeNavigator}
-                    options={{ title: 'Vacation Listings App'  }}
+                    options={{ title: 'Vacation Listing App'  }}
                 />
                 <Drawer.Screen
-                    name='Listings Directory'
+                    name='Directory'
                     component={DirectoryNavigator}
-                    options={{ title: 'View Listings' }}
+                    options={{ title: 'Listing Directory' }}
                 />
             </Drawer.Navigator>
         </View>
