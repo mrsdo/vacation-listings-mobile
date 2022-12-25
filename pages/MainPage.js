@@ -7,13 +7,44 @@
  */
 
 
-import { Platform, View } from 'react-native';
+import {Platform, View} from 'react-native';
 import Constants from 'expo-constants';
-import { createStackNavigator } from '@react-navigation/stack';
+import {createStackNavigator} from '@react-navigation/stack';
+import {createDrawerNavigator} from '@react-navigation/drawer';
+import HomePage from './HomePage';
 
 // Import Local Components
 import ListingInfoPage from './ListingInfoPage';
 import ListingDirectoryPage from './ListingDirectoryPage';
+
+const Drawer = createDrawerNavigator();
+
+const screenOptions = {
+    headerStyle: {
+        backgroundColor: '#E75B64',
+        borderBottomWidth: 2,
+        borderTopWidth: 2,
+        borderTopColor: '#A9B2BD',
+        elevation: 0,
+        shadowOpacity: 0,
+        borderBottomColor: '#FFA036'
+    },
+    headerTintColor: '#FFF'
+};
+
+const HomeNavigator = () => {
+    const Stack = createStackNavigator();
+    return (
+        <Stack.Navigator screenOptions={screenOptions}>
+            <Stack.Screen
+                name='HomeNavStack'
+                component={HomePage}
+                options={{title: 'HomeNavStack Title'}}
+            />
+        </Stack.Navigator>
+    );
+};
+
 
 // Add Navigation
 const DirectoryNavigator = () => {
@@ -22,29 +53,18 @@ const DirectoryNavigator = () => {
 
         <Stack.Navigator
             initialRouteName='Directory'
-            screenOptions={{
-                headerStyle: {
-                    backgroundColor: '#E75B64',
-                    borderBottomWidth: 2,
-                    borderTopWidth: 2,
-                    borderTopColor: '#A9B2BD',
-                    elevation: 0,
-                    shadowOpacity: 0,
-                    borderBottomColor: '#FFA036'
-                },
-                headerTintColor: '#FFF'
-            }}
+            screenOptions={screenOptions}
         >
             <Stack.Screen
                 name='Directory'
                 component={ListingDirectoryPage}
-                options={{ title: 'Listing Directory' }}
+                options={{title: 'Listing Directory'}}
             />
             <Stack.Screen
                 name='ListingInfo'
                 component={ListingInfoPage}
-                options={({ route }) => ({
-                    title: route.params.listing.name
+                options={({route}) => ({
+                    title: route.params.listing.name //Listing Name as routing and Title
                 })}
             />
         </Stack.Navigator>
@@ -62,7 +82,21 @@ const Main = () => {
                     Platform.OS === 'ios' ? 0 : Constants.statusBarHeight
             }}
         >
-            <DirectoryNavigator />
+            <Drawer.Navigator
+                initialRouteName='Home'
+                drawerStyle={{ backgroundColor: '#CEC8FF' }}
+            >
+                <Drawer.Screen
+                    name='Home'
+                    component={HomeNavigator}
+                    options={{ title: 'HomeNavDrawer' }}
+                />
+                <Drawer.Screen
+                    name='Directory'
+                    component={DirectoryNavigator}
+                    options={{ title: 'DirectoryDrawer' }}
+                />
+            </Drawer.Navigator>
         </View>
     );
 };
