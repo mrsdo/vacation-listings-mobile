@@ -2,6 +2,7 @@
  * RenderListings.js | M.Dolce, React Native Portfolio, marti.dolce@29signals.org, 202212
  * Function ---
  * Serves as the 'layout presentation' for Listings
+ * page content is loading.
  * ------------
  */
 import { Text, View } from 'react-native';
