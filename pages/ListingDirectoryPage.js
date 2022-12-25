@@ -5,20 +5,22 @@
  * ------------
  */
 import React, { useState } from 'react';
-import { FlatList, Pressable } from 'react-native';
+import { FlatList } from 'react-native';
 import { Avatar, ListItem, Card } from 'react-native-elements';
 import { LISTINGS } from '../shared/listings'
 
-const ListingDirectoryPage = (props) => {
+const ListingDirectoryPage = ({navigation}) => {
 
     const [listings, setListings] = useState(LISTINGS);
     const renderDirectoryItem = ({ item: listing }) => {
         return (
 
 
-            <ListItem onPress={() =>
-                (listing.id)
-              }>
+            <ListItem
+                onPress={() =>
+                    navigation.navigate('ListingInfo', { listing })
+                }
+            >
 
                 <Avatar source={{uri: listing.avatar_url}}  />
                 <ListItem.Content>

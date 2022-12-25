@@ -4,6 +4,7 @@
 - Author: Martinique Dolce
 - Bootcamp: Nucamp
 - Timeline to completion: 7 days
+- SnackExpoURL: https://snack.expo.dev/@mrsdo/github.com-mrsdo-vacation-listings-mobile
 ---
 Creating a simple project demonstrating technologies used to build an interactive React Native via Snack.
 When developing this application there were a variety of source codes, tutorials, books and web articles analyzed to explore the most effective way for development on a short scale.
