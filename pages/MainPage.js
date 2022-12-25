@@ -7,13 +7,45 @@
  */
 
 
-import { Platform, View } from 'react-native';
+import {SafeAreaView, Text, FlatList, Platform, StyleSheet, View} from 'react-native';
 import Constants from 'expo-constants';
 import { createStackNavigator } from '@react-navigation/stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
 // Import Local Components
+import HomePage from './HomePage';
 import ListingInfoPage from './ListingInfoPage';
 import ListingDirectoryPage from './ListingDirectoryPage';
+
+const Drawer = createDrawerNavigator();
+
+const screenOptions = {
+
+    headerStyle: {
+        backgroundColor: '#E75B64',
+            borderBottomWidth: 2,
+            borderTopWidth: 2,
+            borderTopColor: '#A9B2BD',
+            elevation: 0,
+            shadowOpacity: 0,
+            borderBottomColor: '#FFA036'
+    },
+    headerTintColor: '#FFF'
+
+};
+
+const HomeNavigator = () => {
+    const Stack = createStackNavigator();
+    return (
+        <Stack.Navigator screenOptions={screenOptions}>
+            <Stack.Screen
+                name='Home'
+                component={HomePage}
+               options={{ title: 'Home' }}
+            />
+        </Stack.Navigator>
+    );
+};
 
 // Add Navigation
 const DirectoryNavigator = () => {
@@ -22,18 +54,7 @@ const DirectoryNavigator = () => {
 
         <Stack.Navigator
             initialRouteName='Directory'
-            screenOptions={{
-                headerStyle: {
-                    backgroundColor: '#E75B64',
-                    borderBottomWidth: 2,
-                    borderTopWidth: 2,
-                    borderTopColor: '#A9B2BD',
-                    elevation: 0,
-                    shadowOpacity: 0,
-                    borderBottomColor: '#FFA036'
-                },
-                headerTintColor: '#FFF'
-            }}
+            screenOptions={screenOptions}
         >
             <Stack.Screen
                 name='Directory'
@@ -62,7 +83,21 @@ const Main = () => {
                     Platform.OS === 'ios' ? 0 : Constants.statusBarHeight
             }}
         >
-            <DirectoryNavigator />
+            <Drawer.Navigator
+                initialRouteName='Home'
+                drawerStyle={{ backgroundColor: '#A9B2BD' }}
+            >
+                <Drawer.Screen
+                    name='Welcome'
+                    component={HomeNavigator}
+                    options={{ title: 'Vacation Listings App'  }}
+                />
+                <Drawer.Screen
+                    name='Listings Directory'
+                    component={DirectoryNavigator}
+                    options={{ title: 'View Listings' }}
+                />
+            </Drawer.Navigator>
         </View>
     );
 };

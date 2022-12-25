@@ -7,8 +7,11 @@
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
 
+
 // Import Local Components
 import MainListings from './pages/MainPage';
+
+
 
 
 export default function App() {
@@ -17,6 +20,7 @@ export default function App() {
             <NavigationContainer>
                 <MainListings />
             </NavigationContainer>
+
         </SafeAreaProvider>
     );
 }
