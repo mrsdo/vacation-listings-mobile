@@ -7,35 +7,13 @@
  */
 
 
-import {SafeAreaView, Text, FlatList, Platform, StyleSheet, View} from 'react-native';
+import { Platform, View } from 'react-native';
 import Constants from 'expo-constants';
 import { createStackNavigator } from '@react-navigation/stack';
-import { createDrawerNavigator } from '@react-navigation/drawer';
 
 // Import Local Components
-import HomePage from './HomePage';
 import ListingInfoPage from './ListingInfoPage';
 import ListingDirectoryPage from './ListingDirectoryPage';
-
-const Drawer = createDrawerNavigator();
-
-const screenOptions = {
-    headerTintColor: '#fff',
-    headerStyle: { backgroundColor: '#5637DD' }
-};
-
-const HomeNavigator = () => {
-    const Stack = createStackNavigator();
-    return (
-        <Stack.Navigator screenOptions={screenOptions}>
-            <Stack.Screen
-                name='Home'
-                component={HomePage}
-                options={{ title: 'Home' }}
-            />
-        </Stack.Navigator>
-    );
-};
 
 // Add Navigation
 const DirectoryNavigator = () => {
@@ -84,11 +62,9 @@ const Main = () => {
                     Platform.OS === 'ios' ? 0 : Constants.statusBarHeight
             }}
         >
-            
-
+            <DirectoryNavigator />
         </View>
     );
 };
-
 
 export default Main;
