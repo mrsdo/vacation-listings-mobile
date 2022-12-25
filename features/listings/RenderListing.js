@@ -1,5 +1,11 @@
+/*
+ * RenderListings.js | M.Dolce, React Native Portfolio, marti.dolce@29signals.org, 202212
+ * Function ---
+ * Serves as the 'layout presentation' for Listings
+ * ------------
+ */
 import { Text, View } from 'react-native';
-import { Card } from 'react-native-paper';
+import { Card } from 'react-native-elements';
 
 const RenderListing = ({ listing }) => {
     if (listing) {

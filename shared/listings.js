@@ -30,7 +30,7 @@ export const LISTINGS = [
         ],
         model_year: 2004,
         featured: true,
-        description: "This home is part of a North Fort Myers 55+ retirement mobile home community. Featuring hardwood floors throughout, an enclosed air-conditioned lanai, this updated home has everything you need for your vacation get-away.The property has an on-site fitness center, spacious clubhouse, and a huge community swimming pool and sits just 3 miles from shopping, restaurants, and both medical and municipal services."
+        description: "Featuring hardwood floors throughout, an enclosed air-conditioned lanai, an on-site fitness center, spacious clubhouse, and a huge community swimming pool and sits just 3 miles from shopping, restaurants, and both medical and municipal services."
     },
     {
         id: 1,
